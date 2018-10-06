@@ -4,6 +4,8 @@ An extension for VS Code which provides support for the [LBNF language](https://
 
 LBNF is acronym for *Labelled BNF*, which is the language used in the compiler construction tool [BNF Converter](https://github.com/BNFC/bnfc).
 
+![](docs/screenshot.png)
+
 ## Features
 
 * Syntax highlighting
