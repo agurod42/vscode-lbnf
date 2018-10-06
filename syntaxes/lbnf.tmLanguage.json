@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "LBNF",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#entities"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block.lbnf",
+					"begin": "\\{-",
+					"end": "-\\}"
+				},
+				{
+					"name": "comment.line.lbnf",
+					"match": "-.*"
+				}
+			]
+		},
+		"entities": {
+			"patterns": [
+				{
+					"name": "entity.name.class.lbnf",
+					"match": "\\b.+?(?=\\.)\\b"
+				},
+				{
+					"name": "support.variable",
+					"match": "\\b\\[?[A-Z].*?(?=\\]?\\s)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.lbnf",
+					"match": "\\b(char|coercions|comment|digit|entrypoints|eps|internal|layout|letter|lower|nonempty|position|rules|separator|stop|terminator|token|toplevel|upper)\\b"
+				},
+				{
+					"name": "keyword.operator.new.lbnf",
+					"match": "\\:\\:="
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.lbnf",
+					"match": "\\b\\d+\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.lbnf",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.lbnf",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.lbnf"
+}
