@@ -36,7 +36,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.class.lbnf",
-					"match": "\\b.+?(?=\\.)\\b"
+					"match": "\\b[^\\s]+?(?=\\.)\\b"
 				},
 				{
 					"name": "support.variable",
