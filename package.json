@@ -2,8 +2,12 @@
     "name": "vscode-lbnf",
     "displayName": "LBNF",
     "description": "An extension for VS Code which provides support for the LBNF language.",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "agurodriguez",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/agurodriguez/vscode-lbnf.git"
+    },
     "engines": {
         "vscode": "^1.27.0"
     },
@@ -22,5 +26,6 @@
             "scopeName": "source.lbnf",
             "path": "./syntaxes/lbnf.tmLanguage.json"
         }]
-    }
+    },
+    "icon": "docs/icon.png"
 }
