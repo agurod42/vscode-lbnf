@@ -12,6 +12,10 @@ LBNF is acronym for *Labelled BNF*, which is the language used in the compiler c
 
 ## Release Notes
 
+### 1.0.1
+
+Added keywords for vscode marketplace
+
 ### 1.0.0
 
 Initial release
