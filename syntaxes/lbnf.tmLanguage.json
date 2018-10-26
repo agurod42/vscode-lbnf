@@ -6,16 +6,7 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#entities"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#numbers"
-		},
-		{
-			"include": "#strings"
+			"include": "#rules"
 		}
 	],
 	"repository": {
@@ -32,46 +23,85 @@
 				}
 			]
 		},
-		"entities": {
+		"literals": {
 			"patterns": [
 				{
-					"name": "entity.name.class.lbnf",
-					"match": "\\b[^\\s]+?(?=\\.)\\b"
+					"name": "string.quoted.single.lbnf",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.lbnf",
+							"match": "\\\\."
+						}
+					]
 				},
 				{
-					"name": "support.variable",
-					"match": "\\b\\[?[A-Z].*?(?=\\]?\\s)\\b"
-				}
-			]
-		},
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.lbnf",
-					"match": "\\b(char|coercions|comment|digit|entrypoints|eps|internal|layout|letter|lower|nonempty|position|rules|separator|stop|terminator|token|toplevel|upper)\\b"
+					"name": "string.quoted.double.lbnf",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.lbnf",
+							"match": "\\\\."
+						}
+					]
 				},
 				{
-					"name": "keyword.operator.new.lbnf",
-					"match": "\\:\\:="
+					"match": "\\b[A-Z][_a-zA-Z0-9]*\\b",
+					"name": "support.variable.lbnf"
 				}
 			]
 		},
-		"numbers": {
+		"rules": {
 			"patterns": [
 				{
-					"name": "constant.numeric.lbnf",
-					"match": "\\b\\d+\\b"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.lbnf",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
+					"match": "^(.*)\\.\\s+(?:\\[)?([^\\[\\]]*)(?:\\])?\\s+(\\:\\:=)\\s+(.*)?\\s*;",
+					"captures": {
+						"1": {
+							"name": "entity.name.class.lbnf"
+						},
+						"2": {
+							"name": "support.variable.lbnf"
+						},
+						"3": {
+							"name": "keyword.symbol.lbnf"
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "#literals"
+								}
+							]
+						}
+					}
+				},
 				{
-					"name": "constant.character.escape.lbnf",
-					"match": "\\\\."
+					"begin": "(char|coercions|comment|digit|entrypoints|eps|internal|layout|letter|lower|nonempty|position|rules|separator|stop|terminator|token|toplevel|upper)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.lbnf"
+						}
+					},
+					"end": ";",
+					"patterns": [
+						{
+							"match": "(.*)",
+							"captures": {
+								"1": {
+									"patterns": [
+										{
+											"include": "#literals"
+										},
+										{
+											"name": "keyword.lbnf",
+											"match": "(char|digit|eps|letter|lower|upper)"
+										}
+									]
+								}
+							}
+						}
+					]
 				}
 			]
 		}
