@@ -14,6 +14,10 @@ LBNF is acronym for *Labelled BNF*, which is the language used in the compiler c
 
 ## Release Notes
 
+### 1.0.4
+
+- Fix issue with word `nonempty` not being detected when it's placed next to another keyword
+
 ### 1.0.3
 
 - Fix issue detecting single line comments after rules starting with a keyword

@@ -95,7 +95,7 @@
 										},
 										{
 											"name": "keyword.lbnf",
-											"match": "(char|digit|eps|letter|lower|upper)"
+											"match": "(char|digit|eps|letter|lower|nonempty|upper)"
 										}
 									]
 								}
