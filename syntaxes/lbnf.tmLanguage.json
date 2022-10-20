@@ -19,7 +19,7 @@
 				},
 				{
 					"name": "comment.line.lbnf",
-					"match": "-.*"
+					"match": "--.*"
 				}
 			]
 		},
