@@ -12,6 +12,79 @@ LBNF is acronym for *Labelled BNF*, which is the language used in the compiler c
 
 * Syntax highlighting
 
+## Development
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Open this folder in VS Code and press F5 to launch an Extension Development Host.
+
+## Packaging
+
+Build a `.vsix` package locally:
+
+```bash
+npx @vscode/vsce package
+```
+
+This produces a file like `vscode-lbnf-1.0.5.vsix` in the repository root.
+
+## Publishing
+
+There are two stores you can publish to.
+
+### Visual Studio Marketplace (VS Code)
+
+1. Install the CLI:
+
+```bash
+npm i -g @vscode/vsce
+```
+
+2. Create a Personal Access Token (PAT) on Azure DevOps with scope "Marketplace (publish)".
+3. Sign in once (stores token locally):
+
+```bash
+vsce login agurodriguez
+```
+
+4. Publish a new version (ensure `version` in `package.json` is bumped):
+
+```bash
+vsce publish
+```
+
+### Open VSX Registry (for VSCodium, etc.)
+
+1. Install the CLI:
+
+```bash
+npm i -g ovsx
+```
+
+2. Create an Open VSX token at `https://open-vsx.org` and set it as env var:
+
+```bash
+export OVSX_TOKEN=your-token-here
+```
+
+3. Publish:
+
+```bash
+ovsx publish
+```
+
+Alternatively, use the npm scripts:
+
+```bash
+npm run package
+npm run publish:vsce
+npm run publish:ovsx
+```
+
 ## Release Notes
 
 ### 1.0.5
