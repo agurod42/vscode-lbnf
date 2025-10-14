@@ -4,21 +4,31 @@
     "description": "An extension for VS Code which provides support for the LBNF language.",
     "version": "1.0.5",
     "publisher": "agurodriguez",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "https://github.com/agurodriguez/vscode-lbnf.git"
     },
+    "bugs": {
+        "url": "https://github.com/agurodriguez/vscode-lbnf/issues"
+    },
+    "homepage": "https://github.com/agurodriguez/vscode-lbnf#readme",
     "engines": {
         "vscode": "^1.27.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "scripts": {
+        "package": "npx vsce package",
+        "publish:vsce": "npx vsce publish",
+        "publish:ovsx": "npx ovsx publish"
+    },
     "contributes": {
         "languages": [{
             "id": "lbnf",
             "aliases": ["LBNF", "lbnf"],
-            "extensions": ["cf"],
+            "extensions": [".cf"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
