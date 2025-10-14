@@ -7,12 +7,12 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/agurodriguez/vscode-lbnf.git"
+        "url": "https://github.com/the-wise-monkey/vscode-lbnf.git"
     },
     "bugs": {
-        "url": "https://github.com/agurodriguez/vscode-lbnf/issues"
+        "url": "https://github.com/the-wise-monkey/vscode-lbnf/issues"
     },
-    "homepage": "https://github.com/agurodriguez/vscode-lbnf#readme",
+    "homepage": "https://github.com/the-wise-monkey/vscode-lbnf#readme",
     "engines": {
         "vscode": "^1.27.0"
     },
