@@ -1,6 +1,6 @@
 {
     "name": "lbnf",
-    "displayName": "LBNF",
+    "displayName": "Labelled BNF (LBNF)",
     "description": "An extension providing syntax highlighting and language support for LBNF.",
     "version": "1.0.0",
     "publisher": "the-wise-monkey",
