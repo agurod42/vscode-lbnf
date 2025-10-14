@@ -3,7 +3,7 @@
     "displayName": "LBNF",
     "description": "An extension for VS Code which provides support for the LBNF language.",
     "version": "1.0.5",
-    "publisher": "agurodriguez",
+    "publisher": "the-wise-monkey",
     "license": "MIT",
     "repository": {
         "type": "git",

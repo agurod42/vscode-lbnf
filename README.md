@@ -1,7 +1,5 @@
 # vscode-lbnf
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/agurodriguez.vscode-lbnf.svg)](https://marketplace.visualstudio.com/items?itemName=agurodriguez.vscode-lbnf) [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/agurodriguez.vscode-lbnf.svg)](https://marketplace.visualstudio.com/items?itemName=agurodriguez.vscode-lbnf) 
-
 An extension for VS Code which provides support for the [LBNF language](https://github.com/BNFC/bnfc/blob/master/docs/lbnf.rst#appendix-lbnf-specification).
 
 LBNF is acronym for *Labelled BNF*, which is the language used in the compiler construction tool [BNF Converter](https://github.com/BNFC/bnfc).
@@ -14,8 +12,8 @@ LBNF is acronym for *Labelled BNF*, which is the language used in the compiler c
 
 ## Installation
 
-- **Visual Studio Marketplace**: Install from the listing: [LBNF — agurodriguez](https://marketplace.visualstudio.com/items?itemName=agurodriguez.vscode-lbnf)
-- **Open VSX (VSCodium, etc.)**: Search for "LBNF" in your editor's marketplace, or browse: [Open VSX listing](https://open-vsx.org/extension/agurodriguez/vscode-lbnf) (if available)
+- **Visual Studio Marketplace**: Install from the listing: [LBNF — the-wise-monkey](https://marketplace.visualstudio.com/items?itemName=the-wise-monkey.vscode-lbnf)
+- **Open VSX (VSCodium, etc.)**: Search for "LBNF" in your editor's marketplace, or browse: [Open VSX listing](https://open-vsx.org/extension/the-wise-monkey/vscode-lbnf) (if available)
 - **Manual**: Download the `.vsix` from Releases and install it:
 
 ```bash
@@ -73,7 +71,7 @@ npm i -g @vscode/vsce
 3. Sign in once (stores token locally):
 
 ```bash
-vsce login agurodriguez
+vsce login the-wise-monkey
 ```
 
 4. Publish a new version (ensure `version` in `package.json` is bumped):
@@ -129,7 +127,7 @@ Required repository secrets (Settings → Secrets and variables → Actions):
 
 ### VS Code Marketplace (VSCE_PAT)
 
-1. Ensure you have access to the publisher `agurodriguez` on the [Marketplace](https://marketplace.visualstudio.com/manage) (owner can invite you).
+1. Ensure you have access to the publisher `the-wise-monkey` on the [Marketplace](https://marketplace.visualstudio.com/manage) (owner can invite you).
 2. Create a PAT in Azure DevOps: [New Token](https://dev.azure.com/) → User Settings → Personal access tokens → New Token
    - Organization: any (or "All accessible organizations")
    - Scopes: enable only "Marketplace (Publish)"
