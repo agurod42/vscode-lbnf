@@ -20,8 +20,8 @@
         "Programming Languages"
     ],
     "scripts": {
-        "package": "npx vsce package",
-        "publish:vsce": "npx vsce publish",
+        "package": "npx @vscode/vsce package",
+        "publish:vsce": "npx @vscode/vsce publish",
         "publish:ovsx": "npx ovsx publish"
     },
     "contributes": {
