@@ -1,8 +1,8 @@
 {
-    "name": "vscode-lbnf",
+    "name": "lbnf",
     "displayName": "LBNF",
-    "description": "An extension for VS Code which provides support for the LBNF language.",
-    "version": "1.0.6",
+    "description": "An extension providing syntax highlighting and language support for LBNF.",
+    "version": "1.0.0",
     "publisher": "the-wise-monkey",
     "license": "MIT",
     "repository": {
