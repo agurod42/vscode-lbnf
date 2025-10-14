@@ -1,0 +1,66 @@
+name: Publish to VS Code Marketplace
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-vscode-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Package extension
+        run: npx @vscode/vsce package
+
+      - name: Upload .vsix artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix-artifact
+          path: "*.vsix"
+          if-no-files-found: ignore
+
+      - name: Detect version change
+        id: version
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const cp = require('child_process');
+          let prev = '';
+          try {
+            prev = cp.execSync('git show HEAD^:package.json', { stdio: ['ignore', 'pipe', 'ignore'] }).toString();
+          } catch (e) {
+            // probably first commit on branch
+          }
+          const curr = fs.readFileSync('package.json', 'utf8');
+          const getVer = (s) => { try { return JSON.parse(s).version || ''; } catch { return ''; } };
+          const pv = getVer(prev);
+          const cv = getVer(curr);
+          const changed = pv !== cv;
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `changed=${changed}\nversion=${cv}\n`);
+          NODE
+
+      - name: Publish to VS Code Marketplace
+        if: steps.version.outputs.changed == 'true'
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: npx @vscode/vsce publish
